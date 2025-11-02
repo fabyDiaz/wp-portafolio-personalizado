@@ -1,0 +1,609 @@
+/* ===============================
+   PORTFOLIO PERSONALIZADO - VERSIÓN COMPLETA CON RESPONSIVE FUNCIONAL
+   =============================== */
+
+/* Variables CSS (idénticas al diseño original) */
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --tercer-color: #2b9cf2;
+    --accent-color: #fd79a8;
+    --dark-color: #2d3436;
+    --light-color: #ddd6fe;
+    --bg-gradient: linear-gradient(60deg, #7840c8 0%, #9f5efb 100%);
+    --bg-gradient-alt: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+    --shadow-light: 0 10px 40px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 15px 50px rgba(0, 0, 0, 0.15);
+    --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.2);
+    --border-radius: 15px;
+    --border-radius-small: 10px;
+    --transition: all 0.3s ease;
+}
+
+/* ===============================
+   CONTENEDOR PRINCIPAL
+   =============================== */
+.portfolio-personalizado {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    margin: 40px 0;
+}
+
+.portfolio-personalizado * {
+    box-sizing: border-box;
+}
+
+/* ===============================
+   GRID SYSTEM PERSONALIZADO (FUNCIONAL)
+   =============================== */
+.portfolio-personalizado .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin: 0 -15px !important;
+    gap: 0 !important;
+}
+
+.portfolio-personalizado [class*="col-"] {
+    position: relative !important;
+    padding: 0 15px !important;
+    margin-bottom: 30px !important;
+}
+
+/* ===============================
+   RESPONSIVE COLUMNS (QUE FUNCIONAN)
+   =============================== */
+
+/* Desktop: 3 columnas */
+@media (min-width: 992px) {
+    .portfolio-personalizado .col-lg-4 {
+        flex: 0 0 33.3333% !important;
+        max-width: 33.3333% !important;
+    }
+
+    .portfolio-personalizado .col-lg-3 {
+        flex: 0 0 25% !important;
+        max-width: 25% !important;
+    }
+
+    .portfolio-personalizado .col-lg-6 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+    .portfolio-personalizado .col-lg-12 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Tablets: 2 columnas */
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .portfolio-personalizado .col-lg-4,
+    .portfolio-personalizado .col-lg-3,
+    .portfolio-personalizado .col-md-6 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+
+    .portfolio-personalizado .col-lg-6,
+    .portfolio-personalizado .col-lg-12 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* Móviles: 1 columna */
+@media (max-width: 767px) {
+
+    .portfolio-personalizado .col-12,
+    .portfolio-personalizado .col-md-6,
+    .portfolio-personalizado .col-lg-4,
+    .portfolio-personalizado .col-lg-3,
+    .portfolio-personalizado .col-lg-6,
+    .portfolio-personalizado .col-lg-12 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* ===============================
+   TARJETAS DE PROYECTOS (COMPLETAS CON TODOS LOS EFECTOS)
+   =============================== */
+.portfolio-personalizado .project-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    overflow: hidden;
+    height: 100%;
+    border: 1px solid rgba(108, 92, 231, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.portfolio-personalizado .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* ===============================
+   IMAGEN DEL PROYECTO (CON TODOS LOS EFECTOS)
+   =============================== */
+.portfolio-personalizado .project-image {
+    height: 200px;
+    background: var(--bg-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.portfolio-personalizado .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.portfolio-personalizado .project-image i {
+    font-size: 3rem;
+    color: white;
+    transition: var(--transition);
+}
+
+.portfolio-personalizado .project-image:hover i,
+.portfolio-personalizado .project-image:hover img {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Efecto de brillo en la imagen */
+.portfolio-personalizado .project-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.portfolio-personalizado .project-card:hover .project-image::after {
+    transform: translateX(100%);
+}
+
+/* ===============================
+   CONTENIDO DEL PROYECTO
+   =============================== */
+.portfolio-personalizado .project-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 280px;
+}
+
+.portfolio-personalizado .project-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    transition: var(--transition);
+}
+
+.portfolio-personalizado .project-card:hover .project-title {
+    color: var(--primary-color);
+}
+
+.portfolio-personalizado .project-description {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+.portfolio-personalizado .project-card:hover .project-description {
+    color: #475569;
+}
+
+/* ===============================
+   TAGS DE TECNOLOGÍAS (CON TODOS LOS COLORES)
+   =============================== */
+.portfolio-personalizado .project-tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.portfolio-personalizado .tag {
+    background: var(--light-color);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.portfolio-personalizado .tag:hover {
+    transform: translateY(-2px);
+}
+
+/* Colores específicos para tecnologías */
+.portfolio-personalizado .tag.java {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.portfolio-personalizado .tag.kotlin {
+    background: #ddd6fe;
+    color: #7c3aed;
+}
+
+.portfolio-personalizado .tag.android {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.portfolio-personalizado .tag.wordpress {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.portfolio-personalizado .tag.spring {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.portfolio-personalizado .tag.angular {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.portfolio-personalizado .tag.scratch {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.portfolio-personalizado .tag.mysql {
+    background: #f0f9ff;
+    color: #0284c7;
+}
+
+.portfolio-personalizado .tag.postgresql {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.portfolio-personalizado .tag.php {
+    background: #f3e8ff;
+    color: #9333ea;
+}
+
+.portfolio-personalizado .tag.javascript {
+    background: #fffbeb;
+    color: #d97706;
+}
+
+.portfolio-personalizado .tag.react {
+    background: #ecfeff;
+    color: #0891b2;
+}
+
+.portfolio-personalizado .tag.vue {
+    background: #ecfdf5;
+    color: #10b981;
+}
+
+.portfolio-personalizado .tag.laravel {
+    background: #fef2f2;
+    color: #ef4444;
+}
+
+.portfolio-personalizado .tag.bootstrap {
+    background: #f3e8ff;
+    color: #8b5cf6;
+}
+
+.portfolio-personalizado .tag.divi {
+    background: #f0f9ff;
+    color: #0284c7;
+}
+
+.portfolio-personalizado .tag.responsive {
+    background: #f0fdf4;
+    color: #22c55e;
+}
+
+.portfolio-personalizado .tag.api {
+    background: #fef3c7;
+    color: #f59e0b;
+}
+
+.portfolio-personalizado .tag.rest {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.portfolio-personalizado .tag.xml {
+    background: #fef2f2;
+    color: #ef4444;
+}
+
+.portfolio-personalizado .tag.lifecycle {
+    background: #f3e8ff;
+    color: #8b5cf6;
+}
+
+.portfolio-personalizado .tag.mvvm {
+    background: #ecfdf5;
+    color: #059669;
+}
+
+.portfolio-personalizado .tag.woocommerce {
+    background: #f3e8ff;
+    color: #9333ea;
+}
+
+/* ===============================
+   BOTÓN DE REPOSITORIO/DEMO (CON TODOS LOS EFECTOS)
+   =============================== */
+.portfolio-personalizado .btn-repo {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--border-radius-small);
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: var(--transition);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: auto;
+    cursor: pointer;
+}
+
+/* Efecto de brillo en el botón */
+.portfolio-personalizado .btn-repo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.portfolio-personalizado .btn-repo:hover::before {
+    left: 100%;
+}
+
+.portfolio-personalizado .btn-repo:hover {
+    background: var(--secondary-color);
+    color: white;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.portfolio-personalizado .btn-repo i {
+    font-size: 1rem;
+}
+
+/* ===============================
+   ANIMACIONES (TODAS LAS ORIGINALES)
+   =============================== */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.portfolio-personalizado .project-card {
+    animation: slideInUp 0.6s ease-out both;
+}
+
+/* Delay para animación escalonada */
+.portfolio-personalizado .project-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.portfolio-personalizado .project-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.portfolio-personalizado .project-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.portfolio-personalizado .project-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.portfolio-personalizado .project-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.portfolio-personalizado .project-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.portfolio-personalizado .project-card:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.portfolio-personalizado .project-card:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+.portfolio-personalizado .project-card:nth-child(9) {
+    animation-delay: 0.9s;
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+/* ===============================
+   RESPONSIVE DESIGN DETALLADO
+   =============================== */
+
+/* Desktop grande */
+@media (min-width: 1200px) {
+    .portfolio-personalizado .project-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* Tablets grandes */
+@media (min-width: 768px) and (max-width: 991px) {
+    .portfolio-personalizado .project-content {
+        padding: 1.5rem;
+        min-height: 260px;
+    }
+
+    .portfolio-personalizado .project-title {
+        font-size: 1.3rem;
+    }
+}
+
+/* Móviles grandes */
+@media (max-width: 767px) {
+    .portfolio-personalizado .project-image {
+        height: 180px;
+    }
+
+    .portfolio-personalizado .project-content {
+        padding: 1.2rem;
+        min-height: 240px;
+    }
+
+    .portfolio-personalizado .project-title {
+        font-size: 1.2rem;
+    }
+
+    .portfolio-personalizado .project-description {
+        font-size: 0.9rem;
+    }
+
+    .portfolio-personalizado .btn-repo {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 575px) {
+    .portfolio-personalizado {
+        margin: 20px 0;
+    }
+
+    .portfolio-personalizado .row {
+        margin: 0 -10px !important;
+    }
+
+    .portfolio-personalizado [class*="col-"] {
+        padding: 0 10px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .portfolio-personalizado .project-tags {
+        gap: 0.3rem;
+    }
+
+    .portfolio-personalizado .tag {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .portfolio-personalizado .project-content {
+        padding: 1rem;
+        min-height: 220px;
+    }
+
+    .portfolio-personalizado .project-image {
+        height: 160px;
+    }
+}
+
+/* ===============================
+   INTEGRACIÓN CON DIVI
+   =============================== */
+.et_pb_section .portfolio-personalizado,
+.et_pb_row .portfolio-personalizado,
+.et_pb_column .portfolio-personalizado {
+    width: 100%;
+    max-width: none;
+}
+
+/* ===============================
+   ESTADOS ESPECIALES Y UTILIDADES
+   =============================== */
+.portfolio-personalizado .text-center {
+    text-align: center !important;
+}
+
+.portfolio-personalizado .mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+/* Estado de loading */
+.portfolio-personalizado .project-card.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.portfolio-personalizado .project-card.loading .project-image {
+    background: #f3f4f6;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-personalizado .project-card.loading .project-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    animation: shimmer 1.5s infinite;
+}
+
+/* Enlaces seguros */
+.portfolio-personalizado a {
+    text-decoration: none;
+}
+
+.portfolio-personalizado a:hover {
+    text-decoration: none;
+}

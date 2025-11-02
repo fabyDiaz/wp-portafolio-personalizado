@@ -1,0 +1,58 @@
+/* Estilos para el panel de administración */
+
+#portfolio-tags-manager {
+    margin-top: 20px;
+}
+
+#portfolio-tags-manager table {
+    margin-top: 15px;
+}
+
+#portfolio-tags-manager input[type="text"] {
+    width: 100%;
+    padding: 5px 10px;
+}
+
+#portfolio-tags-manager input[type="color"] {
+    width: 60px;
+    height: 35px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#portfolio-tags-manager .remove-tag {
+    color: #b32d2e;
+}
+
+#portfolio-tags-manager .remove-tag:hover {
+    color: #dc3232;
+}
+
+#new-tag-slug {
+    width: 200px;
+    margin-right: 10px;
+}
+
+#new-tag-bg,
+#new-tag-text {
+    margin-right: 10px;
+}
+
+.form-table th {
+    width: 250px;
+}
+
+.form-table input[type="color"] {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.form-table input[type="text"][readonly] {
+    background: #f5f5f5;
+    width: 100px;
+}
+
+.form-table input[type="number"] {
+    width: 100px;
+}
